@@ -8,7 +8,7 @@ app = Flask(__name__)
 logging.basicConfig(level=logging.INFO)
 
 # n8n webhook URL (from your info)
-N8N_WEBHOOK_URL = "https://testn8n.doctorstech.in/webhook/pixel-open"
+N8N_WEBHOOK_URL = "https://testn8n.doctorstech.in/webhook/Pixel-open"
 
 @app.route("/pixel/<email_id>.png")
 def tracking_pixel(email_id):
