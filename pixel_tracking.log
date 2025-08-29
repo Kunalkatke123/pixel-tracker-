@@ -1,0 +1,60 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.161:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:22:18] "[33mGET / HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:22:23] "[33mGET / HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:22:24] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:22:36] "[33mGET / HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.161:8080
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:root:{'email_id': 'test', 'ip': '127.0.0.1', 'user_agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36', 'timestamp': '2025-08-27 22:26:10'}
+ERROR:app:Exception on /pixel/test.png [GET]
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/kunalkatke/Desktop/Test/app.py", line 24, in tracking_pixel
+    return send_file("transparent.png", mimetype="image/png")
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/helpers.py", line 499, in send_file
+    return werkzeug.utils.send_file(  # type: ignore[return-value]
+  File "/opt/anaconda3/lib/python3.10/site-packages/werkzeug/utils.py", line 428, in send_file
+    stat = os.stat(path)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kunalkatke/Desktop/Test/transparent.png'
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:26:10] "[35m[1mGET /pixel/test.png HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:26:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+ERROR:werkzeug:127.0.0.1 - - [27/Aug/2025 22:27:10] code 400, message Bad request version ('Þ\x9dÛ\x90\x89Q\x0e\x1búN\x88P^ü\x90è\x17Ê=\\\x18\x19é,0¤ä!æ\x94;\x00*zz\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À')
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:27:10] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03ç\x08o8ÓiTx\x9dö?4\x8e\x0b4¾·3£3\x9b¦U¶\x1dL=íX¶_Ï  Þ\x9dÛ\x90\x89Q\x0e\x1búN\x88P^ü\x90è\x17Ê=\\\x18\x19é,0¤ä!æ\x94;\x00*zz\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À[0m" HTTPStatus.BAD_REQUEST -
+ERROR:werkzeug:127.0.0.1 - - [27/Aug/2025 22:27:10] code 400, message Bad request version ("½õÕu&+\x9d\x05'3û\x03\x939µ*Ô4&îæ{&)XÅ\x08¼_A\x03ì\x00,ªª\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À")
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:27:10] "[35m[1m\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x032M\x80ºQ¬c»Æ8{<pæ\x16ýk¿©\x82³\x9e\x07ä×¾\x01j\x0d\x1eÊò ½õÕu&+\x9d\x05'3û\x03\x939µ*Ô4&îæ{&)XÅ\x08¼_A\x03ì\x00,ªª\x13\x01\x13\x02\x13\x03À,À+Ì©À0À/Ì¨À[0m" HTTPStatus.BAD_REQUEST -
+ERROR:werkzeug:127.0.0.1 - - [27/Aug/2025 22:27:10] code 400, message Bad request syntax ('\x16\x03\x01\x00}\x01\x00\x00y\x03\x01#\x19¬âDF\x83')
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:27:10] "[35m[1m\x16\x03\x01\x00}\x01\x00\x00y\x03\x01#\x19¬âDF\x83[0m" HTTPStatus.BAD_REQUEST -
+INFO:root:{'email_id': 'test', 'ip': '127.0.0.1', 'user_agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36', 'timestamp': '2025-08-27 22:28:13'}
+ERROR:app:Exception on /pixel/test.png [GET]
+Traceback (most recent call last):
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/kunalkatke/Desktop/Test/app.py", line 24, in tracking_pixel
+    return send_file("transparent.png", mimetype="image/png")
+  File "/opt/anaconda3/lib/python3.10/site-packages/flask/helpers.py", line 499, in send_file
+    return werkzeug.utils.send_file(  # type: ignore[return-value]
+  File "/opt/anaconda3/lib/python3.10/site-packages/werkzeug/utils.py", line 428, in send_file
+    stat = os.stat(path)
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/kunalkatke/Desktop/Test/transparent.png'
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:28:13] "[35m[1mGET /pixel/test.png HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [27/Aug/2025 22:28:14] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
