@@ -10,6 +10,9 @@ logging.basicConfig(level=logging.INFO)
 # n8n webhook URL (from your info)
 N8N_WEBHOOK_URL = "https://testn8n.doctorstech.in/webhook/Pixel-open"
 
+# Track already-seen email_ids
+seen_emails = set()
+
 @app.route("/pixel/<email_id>.png")
 def tracking_pixel(email_id):
     log_data = {
@@ -18,13 +21,19 @@ def tracking_pixel(email_id):
         "user_agent": request.headers.get("User-Agent"),
         "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
-    app.logger.info(log_data)
 
-    # Notify n8n workflow
-    try:
-        requests.post(N8N_WEBHOOK_URL, json=log_data, timeout=3)
-    except Exception as e:
-        app.logger.error(f"Failed to send data to n8n: {e}")
+    app.logger.info(f"Pixel opened: {log_data}")
+
+    # Only send webhook on first open
+    if email_id not in seen_emails:
+        seen_emails.add(email_id)
+        try:
+            requests.post(N8N_WEBHOOK_URL, json=log_data, timeout=3)
+            app.logger.info(f"Webhook sent for {email_id}")
+        except Exception as e:
+            app.logger.error(f"Failed to send data to n8n: {e}")
+    else:
+        app.logger.info(f"Duplicate open ignored for {email_id}")
 
     # Return the transparent PNG
     return send_file("transperent.png", mimetype="image/png")
